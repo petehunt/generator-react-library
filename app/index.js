@@ -24,14 +24,14 @@ ReactLibraryGenerator.prototype.app = function app() {
   this.appname = path.basename(process.cwd());
   this.template('_package.json', 'package.json');
   this.template('_README.md', 'README.md');
+  this.copy('npmignore', '.npmignore');
+  this.copy('gitignore', '.gitignore');
+  this.copy('src/index.js', 'src/index.js');
+  this.copy('src/index.spec.js', 'src/index.spec.js');
+  this.copy('src/entrypoint.js', 'src/entrypoint.js');
 };
 
 ReactLibraryGenerator.prototype.npmInit = function npmInit() {
   var done = this.async();
   this.spawnCommand('npm', ['init'], done).on('exit', done);
-};
-
-ReactLibraryGenerator.prototype.projectfiles = function projectfiles() {
-  this.copy('editorconfig', '.editorconfig');
-  this.copy('jshintrc', '.jshintrc');
 };
