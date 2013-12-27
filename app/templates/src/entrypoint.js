@@ -9,10 +9,4 @@ var MyComponent = require('./index');
 // via props. For an individual component this should be a
 // simple example.
 
-var Entrypoint = React.createClass({
-  render: function() {
-    return <MyComponent name="world" />;
-  }
-});
-
-module.exports = Entrypoint;
+React.renderComponent(<MyComponent name="world" />, document.body);
