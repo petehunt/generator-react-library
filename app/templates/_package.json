@@ -1,5 +1,19 @@
 {
-  "name": "package",
-  "version": "0.0.0",
-  "dependencies": {}
+  "name": "react-boilerplate",
+  "main": "lib/index.js",
+  "dependencies": {
+    "react": "~0.8",
+    "statics-stylesheets": "~0.0.1",
+    "stylesheets": "~0.0.3"
+  },
+  "devDependencies": {
+    "jsxc": "~0.1.6"
+  },
+  "scripts": {
+    "start": "jsxc --watch src/ lib/",
+    "build": "jsxc src/ lib/"
+  },
+  "files": ["lib/", "USAGE.txt", "static/"],
+  "staticRoot": "./static/",
+  "staticPlugin": "statics-stylesheets",
 }

@@ -16,29 +16,10 @@ var ReactLibraryGenerator = module.exports = function ReactLibraryGenerator(args
 
 util.inherits(ReactLibraryGenerator, yeoman.generators.Base);
 
-ReactLibraryGenerator.prototype.askFor = function askFor() {
-  var cb = this.async();
-
-  // have Yeoman greet the user.
-  console.log(this.yeoman);
-
-  var prompts = [{
-    type: 'confirm',
-    name: 'someOption',
-    message: 'Would you like to enable this option?',
-    default: true
-  }];
-
-  this.prompt(prompts, function (props) {
-    this.someOption = props.someOption;
-
-    cb();
-  }.bind(this));
-};
-
 ReactLibraryGenerator.prototype.app = function app() {
-  this.mkdir('app');
-  this.mkdir('app/templates');
+  this.mkdir('src');
+  this.mkdir('lib');
+  this.mkdir('static');
 
   this.copy('_package.json', 'package.json');
   this.copy('_bower.json', 'bower.json');
