@@ -23,6 +23,7 @@ ReactLibraryGenerator.prototype.app = function app() {
 
   this.appname = path.basename(process.cwd());
   this.template('_package.json', 'package.json');
+  this.template('_README.md', 'README.md');
 };
 
 ReactLibraryGenerator.prototype.npmInit = function npmInit() {
