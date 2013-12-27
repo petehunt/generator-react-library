@@ -11,6 +11,7 @@
     "jsxc": "~0.1.6",
 
     "browserify": "~3.14.1",
+    "watchify": "~0.5.0",
     "uglifyjs": "~2.3.6",
 
     "react": "~0.8",
@@ -20,9 +21,11 @@
   "scripts": {
     "start": "jsxc --watch src/ lib/",
     "build": "jsxc src/ lib/",
-    "test": "jasmine-node lib/",
+    "prepublish": "npm run build",
+    "test": "npm run build && jasmine-node lib/",
 
     "browserify": "browserify lib/entrypoint.js > build/browser-bundle.js",
+    "browserify-watch": "watchify lib/entrypoint.js -o build/browser-bundle.js -v",
     "browserify-min": "NODE_ENV=production browserify lib/entrypoint.js | uglifyjs -cm > build/browser-bundle.min.js",
     "collect-static": "collect-static lib/entrypoint.js ./build/static"
   },
