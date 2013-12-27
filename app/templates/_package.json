@@ -21,8 +21,10 @@
     "start": "jsxc --watch src/ lib/",
     "build": "jsxc src/ lib/",
     "test": "jasmine-node lib/",
+
     "browserify": "browserify lib/entrypoint.js > build/browser-bundle.js",
-    "browserify-min": "browserify lib/entrypoint.js | uglifyjs -cm > build/browser-bundle.min.js"
+    "browserify-min": "NODE_ENV=production browserify lib/entrypoint.js | uglifyjs -cm > build/browser-bundle.min.js",
+    "collect-static": "collect-static lib/entrypoint.js ./build/static"
   },
   "files": ["lib/", "static/"],
   "staticRoot": "./static/",

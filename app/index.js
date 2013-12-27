@@ -20,6 +20,7 @@ ReactLibraryGenerator.prototype.app = function app() {
   this.mkdir('src');
   this.mkdir('lib');
   this.mkdir('static');
+  this.mkdir('build');
 
   this.appname = path.basename(process.cwd());
   this.template('_package.json', 'package.json');
@@ -29,6 +30,7 @@ ReactLibraryGenerator.prototype.app = function app() {
   this.copy('src/index.js', 'src/index.js');
   this.copy('src/index.spec.js', 'src/index.spec.js');
   this.copy('src/entrypoint.js', 'src/entrypoint.js');
+  this.copy('static/MyComponent.css', 'static/MyComponent.css');
 };
 
 ReactLibraryGenerator.prototype.npmInit = function npmInit() {
