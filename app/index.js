@@ -8,7 +8,7 @@ var ReactLibraryGenerator = module.exports = function ReactLibraryGenerator(args
   yeoman.generators.Base.apply(this, arguments);
 
   this.on('end', function () {
-    this.installDependencies({ skipInstall: options['skip-install'] });
+    this.installDependencies({ skipInstall: options['skip-install'], bower: false });
   });
 
   this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
@@ -21,8 +21,13 @@ ReactLibraryGenerator.prototype.app = function app() {
   this.mkdir('lib');
   this.mkdir('static');
 
-  this.copy('_package.json', 'package.json');
-  this.copy('_bower.json', 'bower.json');
+  this.appname = path.basename(process.cwd());
+  this.template('_package.json', 'package.json');
+};
+
+ReactLibraryGenerator.prototype.npmInit = function npmInit() {
+  var done = this.async();
+  this.spawnCommand('npm', ['init'], done).on('exit', done);
 };
 
 ReactLibraryGenerator.prototype.projectfiles = function projectfiles() {

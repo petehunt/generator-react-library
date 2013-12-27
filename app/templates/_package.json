@@ -1,19 +1,21 @@
 {
-  "name": "react-boilerplate",
+  "name": "<%= _.slugify(appname)%>",
   "main": "lib/index.js",
-  "dependencies": {
+  "peerDependencies": {
     "react": "~0.8",
     "statics-stylesheets": "~0.0.1",
     "stylesheets": "~0.0.3"
   },
   "devDependencies": {
+    "jasmine-node": "~1.12.0",
     "jsxc": "~0.1.6"
   },
   "scripts": {
     "start": "jsxc --watch src/ lib/",
-    "build": "jsxc src/ lib/"
+    "build": "jsxc src/ lib/",
+    "test": "jasmine-node spec/"
   },
-  "files": ["lib/", "USAGE.txt", "static/"],
+  "files": ["lib/", "static/"],
   "staticRoot": "./static/",
-  "staticPlugin": "statics-stylesheets",
+  "staticPlugin": "statics-stylesheets"
 }
