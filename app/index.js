@@ -1,14 +1,21 @@
 'use strict';
+var fs = require('fs');
 var util = require('util');
 var path = require('path');
 var yeoman = require('yeoman-generator');
-
 
 var ReactLibraryGenerator = module.exports = function ReactLibraryGenerator(args, options, config) {
   yeoman.generators.Base.apply(this, arguments);
 
   this.on('end', function () {
-    this.installDependencies({ skipInstall: options['skip-install'], bower: false });
+    this.installDependencies({
+      skipInstall: options['skip-install'],
+      bower: false,
+      callback: function() {
+        console.log('\x1B[2J');
+        console.log(fs.readFileSync('README.md', {encoding: 'utf8'}));
+      }.bind(this)
+    });
   });
 
   this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
