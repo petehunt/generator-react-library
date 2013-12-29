@@ -31,9 +31,9 @@
 
     "server": "npm run collect-static && STATIC_ROOT=/build/static/ node_modules/.bin/beefy src/entrypoint.js --live --open -- -t reactify -t envify",
 
-    "browserify": "browserify lib/entrypoint.js > build/browser-bundle.js",
-    "browserify-watch": "watchify lib/entrypoint.js -o build/browser-bundle.js -v",
-    "browserify-min": "NODE_ENV=production browserify lib/entrypoint.js | uglifyjs -cm > build/browser-bundle.min.js",
+    "browserify": "browserify lib/entrypoint.js > build/static/browser-bundle.js",
+    "browserify-watch": "watchify lib/entrypoint.js -o build/static/browser-bundle.js -v",
+    "browserify-min": "NODE_ENV=production browserify lib/entrypoint.js | uglifyjs -cm > build/static/browser-bundle.min.js",
     "collect-static": "collect-static lib/entrypoint.js ./build/static"
   },
   "browserify": {
