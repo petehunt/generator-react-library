@@ -1,9 +1,9 @@
 {
   "name": "generator-react-library",
-  "version": "0.0.0",
-  "description": "A generator for Yeoman",
+  "version": "0.0.1",
+  "description": "A generator for React libraries",
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator", "react", "jsx"
   ],
   "homepage": "https://github.com/petehunt/generator-react-library",
   "bugs": "https://github.com/petehunt/generator-react-library/issues",
@@ -35,7 +35,7 @@
   },
   "licenses": [
     {
-      "type": "MIT"
+      "type": "Apache 2"
     }
   ]
 }
