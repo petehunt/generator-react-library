@@ -1,6 +1,6 @@
 {
   "name": "generator-react-library",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A generator for React libraries",
   "keywords": [
     "yeoman-generator", "react", "jsx"
