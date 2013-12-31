@@ -18,7 +18,7 @@ var ReactLibraryGenerator = module.exports = function ReactLibraryGenerator(args
     });
   });
 
-  this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
+  this.pkg = require(path.join(__dirname, '../package.json'));
 };
 
 util.inherits(ReactLibraryGenerator, yeoman.generators.Base);
