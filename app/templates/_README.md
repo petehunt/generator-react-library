@@ -1,4 +1,16 @@
-# <%= _.slugify(appname)%>
+# <%= _.slugify(appname) %>
+
+A component built for the [React](http://facebook.github.io/react/) framework.
+
+```sh
+npm install <%= _.slugify(appname)%>
+```
+
+## Usage
+
+To be completed.
+
+## For developers
 
  * Put your code in `src/`.
  * Put your tests in `spec/`. Use `npm test` to run them.
