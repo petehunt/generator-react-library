@@ -5,7 +5,7 @@
     "envify": "~0.2.0",
     "react": "~0.8",
     "statics-stylesheets": "~0.0.1",
-    "stylesheets": "~0.0.4"
+    "stylesheets": "~0.0.5"
   },
   "devDependencies": {
     "jasmine-node": "~1.12.0",
