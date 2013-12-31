@@ -7,7 +7,7 @@ var yeoman = require('yeoman-generator');
 var ReactLibraryGenerator = module.exports = function ReactLibraryGenerator(args, options, config) {
   yeoman.generators.Base.apply(this, arguments);
 
-  this.on('end', function () {
+  this.on('end', function() {
     this.installDependencies({
       skipInstall: options['skip-install'],
       bower: false,
