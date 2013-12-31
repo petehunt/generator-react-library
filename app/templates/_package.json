@@ -1,37 +1,30 @@
 {
   "name": "<%= _.slugify(appname)%>",
   "main": "lib/index.js",
+  "description": "<%= _.slugify(appname)%>, a component for the React framework.",
   "peerDependencies": {
-    "envify": "~0.2.0",
-    "react": "~0.8",
-    "statics-stylesheets": "~0.0.1",
-    "stylesheets": "~0.0.5"
+    "react": "~0.8"
   },
   "devDependencies": {
+    "beefy": "~0.7.1",
+    "browserify": "~3.14.1",
+    "envify": "~0.2.0",
     "jasmine-node": "~1.12.0",
     "jsxc": "~0.1.6",
-
-    "beefy": "~0.7.1",
-    "reactify": "~0.4.0",
-
-    "browserify": "~3.14.1",
-    "watchify": "~0.5.0",
-    "uglifyjs": "~2.3.6",
-
-    "envify": "~0.2.0",
     "react": "~0.8",
+    "reactify": "~0.4.0",
+    "statics": "~0.1.0",
     "statics-stylesheets": "~0.0.1",
-    "stylesheets": "~0.0.4",
-    "statics": "~0.1.0"
+    "stylesheets": "~0.0.5",
+    "uglifyjs": "~2.3.6",
+    "watchify": "~0.5.0"
   },
   "scripts": {
     "start": "jsxc --watch src/ lib/",
     "build": "jsxc src/ lib/",
     "prepublish": "npm run build",
     "test": "npm run build && jasmine-node lib/",
-
     "server": "npm run collect-static && STATIC_ROOT=/build/static/ node_modules/.bin/beefy src/entrypoint.js --live --open -- -t reactify -t envify",
-
     "browserify": "browserify lib/entrypoint.js > build/static/browser-bundle.js",
     "browserify-watch": "watchify lib/entrypoint.js -o build/static/browser-bundle.js -v",
     "browserify-min": "NODE_ENV=production browserify lib/entrypoint.js | uglifyjs -cm > build/static/browser-bundle.min.js",
