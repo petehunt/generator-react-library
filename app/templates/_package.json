@@ -16,7 +16,7 @@
     "statics": "~0.1.0",
     "statics-stylesheets": "~0.0.1",
     "stylesheets": "~0.0.5",
-    "uglifyjs": "~2.3.6",
+    "uglify-js": "~2.4.8",
     "watchify": "~0.5.0"
   },
   "scripts": {
@@ -24,7 +24,7 @@
     "build": "jsxc src/ lib/",
     "prepublish": "npm run build",
     "test": "npm run build && jasmine-node lib/",
-    "server": "npm run collect-static && STATIC_ROOT=/build/static/ node_modules/.bin/beefy src/entrypoint.js --live --open -- -t reactify -t envify",
+    "server": "npm run collect-static && STATIC_ROOT=/build/static/ beefy src/entrypoint.js --live --open -- -t reactify -t envify",
     "browserify": "browserify lib/entrypoint.js > build/static/browser-bundle.js",
     "browserify-watch": "watchify lib/entrypoint.js -o build/static/browser-bundle.js -v",
     "browserify-min": "NODE_ENV=production browserify lib/entrypoint.js | uglifyjs -cm > build/static/browser-bundle.min.js",
