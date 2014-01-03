@@ -3,7 +3,9 @@
   "version": "0.0.2",
   "description": "A generator for React libraries",
   "keywords": [
-    "yeoman-generator", "react", "jsx"
+    "yeoman-generator",
+    "react",
+    "jsx"
   ],
   "homepage": "https://github.com/petehunt/generator-react-library",
   "bugs": "https://github.com/petehunt/generator-react-library/issues",
@@ -21,7 +23,8 @@
     "test": "mocha"
   },
   "dependencies": {
-    "yeoman-generator": "~0.14.0"
+    "yeoman-generator": "~0.14.0",
+    "nexpect": "~0.3.0"
   },
   "devDependencies": {
     "mocha": "~1.14.0"
