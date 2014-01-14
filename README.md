@@ -1,5 +1,7 @@
 # generator-react-library
 
+**Codebase going through major changes.**
+
 A generator for [Yeoman](http://yeoman.io). If you don't have it yet:
 
 ```
