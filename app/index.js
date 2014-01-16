@@ -24,20 +24,15 @@ var ReactLibraryGenerator = module.exports = function ReactLibraryGenerator(args
 util.inherits(ReactLibraryGenerator, yeoman.generators.Base);
 
 ReactLibraryGenerator.prototype.app = function app() {
-  this.mkdir('src');
-  this.mkdir('lib');
-  this.mkdir('static');
-  this.mkdir('build');
-
   this.appname = path.basename(process.cwd());
   this.template('_package.json', 'package.json');
   this.template('_README.md', 'README.md');
   this.copy('npmignore', '.npmignore');
   this.copy('gitignore', '.gitignore');
-  this.copy('src/index.js', 'src/index.js');
-  this.copy('src/index.spec.js', 'src/index.spec.js');
-  this.copy('src/entrypoint.js', 'src/entrypoint.js');
-  this.copy('static/MyComponent.css', 'static/MyComponent.css');
+  this.copy('index.html', 'index.html');
+  this.copy('src/index.jsx', 'src/index.jsx');
+  this.copy('test/index.spec.js', 'test/index.spec.js');
+  this.copy('statics/component.css', 'statics/component.css');
 };
 
 ReactLibraryGenerator.prototype.npmInit = function npmInit() {

@@ -1,39 +1,35 @@
 {
   "name": "<%= _.slugify(appname)%>",
-  "main": "lib/index.js",
+  "main": "src/index.js",
   "description": "<%= _.slugify(appname)%>, a component for the React framework.",
   "peerDependencies": {
     "react": "~0.8"
   },
   "devDependencies": {
-    "beefy": "~0.7.1",
     "browserify": "~3.14.1",
-    "envify": "~0.2.0",
     "jasmine-node": "~1.12.0",
-    "jsxc": "~0.1.6",
-    "react": "~0.8",
     "reactify": "~0.4.0",
-    "statics": "~0.1.0",
-    "statics-stylesheets": "~0.0.1",
-    "stylesheets": "~0.0.5",
+    "collect-statics": "git+https://github.com/petehunt/collect-static.git#cl",
+    "statics": "git+https://github.com/petehunt/statics.git",
     "uglify-js": "~2.4.8",
-    "watchify": "~0.5.0"
+    "watchify": "~0.5.0",
+    "react": "~0.8.0",
+    "envify": "~0.2.0",
+    "jsxc": "~0.1.6",
+    "beefy": "~0.7.1"
   },
   "scripts": {
-    "start": "jsxc --watch src/ lib/",
-    "build": "jsxc src/ lib/",
-    "prepublish": "npm run build",
-    "test": "npm run build && jasmine-node lib/",
-    "server": "npm run collect-static && STATIC_ROOT=/build/static/ beefy src/entrypoint.js --live --open -- -t reactify -t envify",
-    "browserify": "browserify lib/entrypoint.js > build/static/browser-bundle.js",
-    "browserify-watch": "watchify lib/entrypoint.js -o build/static/browser-bundle.js -v",
-    "browserify-min": "NODE_ENV=production browserify lib/entrypoint.js | uglifyjs -cm > build/static/browser-bundle.min.js",
-    "collect-static": "collect-static lib/entrypoint.js ./build/static"
+    "test": "echo 'never trust interns'",
+    "prepublish": "node_modules/.bin/jsxc -e jsx src src",
+    "build": "npm dedupe && node_modules/.bin/collect-statics ./ && mkdir -p ./test/build/statics && cp -r node_modules/statics/* ./test/build/statics/ && cat ./test/build/statics/*.css > ./test/build/statics/_all.css && browserify src/index.jsx > test/build/_all.js -t reactify -t envify",
+    "start": "beefy test/index.html --live --open"
   },
   "browserify": {
-    "transform": ["envify"]
+    "transform": [
+      "envify"
+    ]
   },
-  "files": ["lib/", "static/"],
-  "staticRoot": "./static/",
-  "staticPlugin": "statics-stylesheets"
+  "version": "0.0.0",
+  "author": "",
+  "license": "ISC"
 }
